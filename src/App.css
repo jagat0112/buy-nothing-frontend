@@ -1,38 +1,280 @@
-.App {
-  text-align: center;
+html {
+  font-family: "Poppins", sans-serif;
+  font-size: 62.5%;
+  line-height: 1.5;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  color: rgb(128, 128, 128);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+p {
+  margin-top: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+h1,
+h2,
+h3 {
+  color: var(--color-heading);
+  margin-bottom: 1rem;
+  line-height: 1.1;
+}
+h1 {
+  font-size: 8rem;
+}
+h2 {
+  font-size: 4rem;
+}
+
+h3 {
+  font-size: 3rem;
+  font-weight: 500;
+}
+
+@media screen and (min-width: 1024px) {
+  h1 {
+    font-size: 6rem;
+  }
+  h2 {
+    font-size: 4rem;
+  }
+  h3 {
+    font-size: 2.4rem;
+  }
+  p,
+  li {
+    font-size: 1.2rem;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* LINKS */
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style-type: none;
+}
+
+/* //   Images */
+
+img {
+  width: 100%;
+  display: block;
+
+  object-fit: fill;
+}
+
+/* Container */
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* padding */
+.p-5 {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.flex {
+  display: flex;
+}
+
+/* card */
+
+.card {
+  width: 100%;
+  height: 100%;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.158);
+}
+
+.give-away .card {
+  cursor: pointer;
+  transition: transform, 0.4s;
+  max-width: 300px;
+  max-height: 480px;
+}
+.give-away .card:hover {
+  transform: scale(1.02);
+}
+
+/* Give away */
+
+.give-away--grid {
+  display: grid;
+  gap: 30px;
+  justify-items: center;
+  justify-content: center;
+  grid-template: repeat(auto, 1fr) / repeat(1, 1fr);
+}
+
+@media screen and (min-width: 768px) {
+  .give-away--grid {
+    gap: 20px;
+    grid-template: repeat(3, 1fr) / repeat(2, 1fr);
+  }
+}
+@media screen and (min-width: 1024px) {
+  .give-away--grid {
+    gap: 10px;
+    grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+  }
+}
+
+.give-away__list {
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.give-away__list--name {
+  font-size: 1.6rem;
+  padding-top: 10px;
+}
+
+.give-away__btn {
+  background-color: #6cb4ee;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  width: 80%;
+  cursor: pointer;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 5px;
+  transition: background-color, 0.4s;
+}
+.give-away__btn:hover {
+  background-color: #64a6db;
+}
+
+.give-away__img {
+  height: 250px;
+}
+.give-away__desc {
+  padding: 0 10px;
+  max-height: 75px;
+  overflow: scroll;
+}
+
+/* NavBar */
+.navbar {
+  background-color: #8bc6ec;
+  background-image: linear-gradient(135deg, #8bc6ec 0%, #9599e2 100%);
+}
+.navbar__lists {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0;
+  padding: 15px 0;
+  color: white;
+}
+
+.navbar__items {
+  font-size: 16px;
+}
+
+.navbar a {
+  color: white;
+}
+
+.navbar .buy {
+  color: #ff7f50;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.116);
+}
+
+.navbar__items--brand {
+  font-weight: 700;
+  font-size: 30px;
+}
+
+/* Login */
+.log-in {
+  margin: 50px 0;
+  text-align: center;
+}
+.login-in__form {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+input {
+  border-radius: 0.5rem;
+  border: 1px solid #999;
+  display: block;
+  margin-bottom: 1rem;
+  outline: none;
+  padding: 1rem;
+  width: 90%;
+}
+@media screen and (min-width: 768px) {
+  .login-btn,
+  input {
+    width: 50%;
+  }
+}
+
+input:focus {
+  border: 1px solid #333;
+  box-shadow: 0 0 3px rgba(34, 34, 34, 0.404);
+}
+
+button {
+  border-radius: 10px;
+  border: none;
+  margin-top: 5px;
+  padding: 1rem;
+
+  cursor: pointer;
+}
+
+.login-btn {
+  background: rgb(116, 214, 144);
+  background: linear-gradient(
+    308deg,
+    rgba(116, 214, 144, 1) 0%,
+    rgba(92, 191, 187, 1) 100%
+  );
   color: white;
+  width: 90%;
 }
 
-.App-link {
-  color: #61dafb;
+@media screen and (min-width: 768px) {
+  .login-btn {
+    width: 52%;
+  }
+}
+.login__header {
+  text-align: center;
+  font-size: 15px;
+}
+@media screen and (min-width: 768px) {
+  .login__header {
+    font-size: 25px;
+  }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.google-fb-login {
+  text-align: center;
+}
+.login__or {
+  color: black;
+}
+.login__text,
+.login__or {
+  font-size: 25px;
+  margin: 10px 0;
+}
+
+/* ERROR MESSAGE */
+.error_message {
+  font-size: 15px;
+  color: rgba(146, 5, 5, 0.884);
 }
