@@ -30,6 +30,10 @@ h3 {
   font-size: 3rem;
   font-weight: 500;
 }
+p,
+li {
+  font-size: 1.6rem;
+}
 
 @media screen and (min-width: 1024px) {
   h1 {
@@ -43,7 +47,7 @@ h3 {
   }
   p,
   li {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
   }
 }
 
@@ -62,8 +66,7 @@ li {
 img {
   width: 100%;
   display: block;
-
-  object-fit: fill;
+  object-fit: cover;
 }
 
 /* Container */
@@ -72,6 +75,12 @@ img {
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+}
+@media screen and (min-width: 1024px) {
+  .container {
+    padding-right: 45px;
+    padding-left: 45px;
+  }
 }
 
 /* padding */
@@ -95,8 +104,8 @@ img {
 .give-away .card {
   cursor: pointer;
   transition: transform, 0.4s;
-  max-width: 300px;
-  max-height: 480px;
+  /* max-width: 90%; */
+  max-height: 500px;
 }
 .give-away .card:hover {
   transform: scale(1.02);
@@ -106,7 +115,7 @@ img {
 
 .give-away--grid {
   display: grid;
-  gap: 30px;
+  gap: 40px;
   justify-items: center;
   justify-content: center;
   grid-template: repeat(auto, 1fr) / repeat(1, 1fr);
@@ -114,13 +123,13 @@ img {
 
 @media screen and (min-width: 768px) {
   .give-away--grid {
-    gap: 20px;
+    gap: 60px;
     grid-template: repeat(3, 1fr) / repeat(2, 1fr);
   }
 }
 @media screen and (min-width: 1024px) {
   .give-away--grid {
-    gap: 10px;
+    gap: 80px;
     grid-template: repeat(3, 1fr) / repeat(3, 1fr);
   }
 }
@@ -131,12 +140,15 @@ img {
 }
 
 .give-away__list--name {
-  font-size: 1.6rem;
+  width: 100%;
+  font-size: 2rem;
   padding-top: 10px;
+  color: #333;
+  font-weight: 600;
 }
 
 .give-away__btn {
-  background-color: #6cb4ee;
+  background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
   color: white;
   border: none;
   padding: 5px 10px;
@@ -194,7 +206,8 @@ img {
 }
 
 /* Login */
-.log-in {
+.log-in,
+.register {
   margin: 50px 0;
   text-align: center;
 }
@@ -213,6 +226,7 @@ input {
   outline: none;
   padding: 1rem;
   width: 90%;
+  font-size: 12px;
 }
 @media screen and (min-width: 768px) {
   .login-btn,
@@ -231,8 +245,8 @@ button {
   border: none;
   margin-top: 5px;
   padding: 1rem;
-
   cursor: pointer;
+  font-size: 12px;
 }
 
 .login-btn {
@@ -266,10 +280,10 @@ button {
 }
 .login__or {
   color: black;
+  font-size: 20px;
 }
 .login__text,
 .login__or {
-  font-size: 25px;
   margin: 10px 0;
 }
 
@@ -277,4 +291,41 @@ button {
 .error_message {
   font-size: 15px;
   color: rgba(146, 5, 5, 0.884);
+}
+
+.register__btn {
+  background-color: #fbab7e;
+  background-image: linear-gradient(62deg, #fbab7e 0%, #f7ce68 100%);
+  color: white;
+  width: 90%;
+  max-width: 700px;
+}
+
+/* btn */
+
+.btn-grad {
+  background-image: linear-gradient(
+    to right,
+    #457fca 0%,
+    #5691c8 51%,
+    #457fca 100%
+  );
+}
+.btn-grad {
+  margin: 10px auto;
+  padding: 10px 25px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  display: block;
+}
+
+.btn-grad:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
 }

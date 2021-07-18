@@ -1,5 +1,6 @@
 import HomePage from "./Pages/Homepage";
 import Login from "./Pages/Login";
+import Register from "./Pages/Register";
 import Navbar from "./Pages/Navbar";
 import { ProductProvider } from "./context/productContext/ProductContext";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
@@ -14,6 +15,7 @@ function App() {
           <Switch>
             <Route exact path="/" component={HomePage} />
             <Route path="/login" component={Login} />
+            <Route path="/register" component={Register} />
           </Switch>
         </BrowserRouter>
       </UserProvider>

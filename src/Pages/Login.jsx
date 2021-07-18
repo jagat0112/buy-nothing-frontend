@@ -1,24 +1,41 @@
 import React, { useState, useContext, useEffect } from "react";
 import GoogleLogIn from "./GoogleLogIn";
+import { useHistory } from "react-router-dom";
+import { loginSchema } from "../utils/validate";
 import { UserContext } from "../context/UserContext/UserContext";
 
 const Login = () => {
-  const context = useContext(UserContext);
+  let history = useHistory();
 
+  const context = useContext(UserContext);
   const [loginCredit, setLoginCredit] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+
+  const token = localStorage.getItem("token");
 
   useEffect(() => {
     if (context.error !== {}) {
       setError(context.error);
     }
-  }, [context.error]);
+    if (token) {
+      history.push("/");
+    }
+  }, [context.error, context.user]);
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
-    context.login({ loginCredit, password });
+    if (loginCredit === "" || password === "")
+      return context.validateUser("Please input the all the fields");
+    const res = loginSchema.validate({ phone: loginCredit });
+    if (res.error) context.validateUser(res.error.details[0].message);
+    try {
+      context.login({ loginCredit, password });
+    } catch (error) {
+      console.log(error.response);
+    }
   };
+
   return (
     <div className="log-in container">
       <p className="login__header">
@@ -33,7 +50,7 @@ const Login = () => {
         <input
           name="phone"
           type="text"
-          placeholder="Email or Phone Number"
+          placeholder="Phone Number"
           onChange={(e) => setLoginCredit(e.target.value)}
         ></input>
         <input

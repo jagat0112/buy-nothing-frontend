@@ -29,8 +29,11 @@ const Items = () => {
                   <i className="fas fa-map-marker-alt"></i>{" "}
                   {product.pickUpLocation}
                 </p>
-                <p>Owner: {product.author.name}</p>
-                <button className=" give-away__btn" onClick={handleClaim}>
+                <p>Owner: {product.author && product.author.name}</p>
+                <button
+                  className=" give-away__btn btn-grad"
+                  onClick={handleClaim}
+                >
                   Claim Item
                 </button>
               </div>
